@@ -1,0 +1,29 @@
+### Register user
+POST http://localhost:8000/api/v1/users/
+Content-Type: application/json
+
+{
+  "username": "root123",
+  "first_name": "Root",
+  "last_name": "User",
+  "password": "Asd123!@#",
+  "email": "root@example.com"
+}
+
+### Get Authentication Token
+POST http://localhost:8000/api-token-auth/
+Content-Type: application/json
+
+{
+  "username": "root123",
+  "password": "Asd123!@#"
+}
+
+
+### API Access (Use the token you got from /api-token-auth/)
+# curl -X GET http://127.0.0.1:8000/api/v1/example/ -H 'Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'
+GET http://localhost:8000/api/v1/mathops/
+Authorization: Token 465aa7633264b757e126f1e9b41f633a610f3aef
+
+###
+
