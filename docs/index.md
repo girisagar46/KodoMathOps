@@ -7,18 +7,18 @@ A Backend API for a MVP of an application to learn the basic mathematical operat
 
 # Prerequisites
 
-- [Docker](https://docs.docker.com/docker-for-mac/install/) (To make MySQL setup easy)
+- [Docker](https://docs.docker.com/docker-for-mac/install/)
 
-# Local Development
+# Initialize the project
 
-## Using Docker to run whole stack
 Start the dev server for local development:
+
 ```bash
 docker-compose up
 ```
 
-Run a command inside the docker container:
+Create a superuser to login to the admin:
 
 ```bash
-docker-compose run --rm web [command]
+docker-compose run --rm web ./manage.py createsuperuser
 ```
