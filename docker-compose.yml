@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: kodomath_test_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kodomathops
+      MYSQL_USER: kodo
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "127.0.0.1", "-u", "kodo", "-ppassword"]
+      interval: 2s
+      retries: 10
+    volumes:
+      - ./volume/mysql:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
+#  web:
+#    restart: always
+#    environment:
+#      - DJANGO_SECRET_KEY=local
+#    image: web
+#    build: ./
+#    command: >
+#      bash -c "./manage.py migrate &&
+#               ./manage.py runserver 0.0.0.0:8000"
+#    volumes:
+#      - ./:/code
+#    ports:
+#      - "8000:8000"
+#    depends_on:
+#      - mysql
+  documentation:
+    restart: always
+    build: ./
+    command: "mkdocs serve"
+    volumes:
+      - ./:/code
+    ports:
+      - "8001:8001"
