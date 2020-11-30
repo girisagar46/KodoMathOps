@@ -1,5 +1,7 @@
 from django.urls import path
 
-from .views import BaseView
+from .views import PlayView
 
-urlpatterns = [path("", BaseView.as_view())]
+urlpatterns = [
+    path("play/", PlayView.as_view(), name="play"),
+]
