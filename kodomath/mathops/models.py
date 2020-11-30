@@ -33,7 +33,7 @@ class QuestionBank(models.Model):
 class QuestionTracker(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
-    player_stats = models.ForeignKey(StudentStats, on_delete=models.DO_NOTHING)
+    student_stats = models.ForeignKey(StudentStats, on_delete=models.DO_NOTHING)
     question_bank = models.ForeignKey(QuestionBank, on_delete=models.DO_NOTHING)
 
     time_to_answer = models.DurationField(default=timedelta())
