@@ -17,7 +17,7 @@ class StudentStats(models.Model):
         """Meta."""
 
         db_table = "student_stats"
-        verbose_name = "stats on each student"
+        verbose_name = "Student Stats"
         verbose_name_plural = "stats on each students"
         get_latest_by = "created_at"
         index_together = [["user", "level", "updated_at"]]
@@ -39,7 +39,7 @@ class QuestionBank(models.Model):
         """Meta."""
 
         db_table = "question_bank"
-        verbose_name = "questions categorized by level to show it to students"
+        verbose_name = "Question Bank"
         index_together = [["id", "level"]]
 
     id = models.IntegerField(primary_key=True, editable=False)
@@ -57,7 +57,7 @@ class QuestionTracker(models.Model):
         """Meta."""
 
         db_table = "question_tracker"
-        verbose_name = "track answers submitted by the students"
+        verbose_name = "Questions Submitted By Student"
         index_together = [["id", "created_at"]]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -72,4 +72,4 @@ class QuestionTracker(models.Model):
     updated_at = models.DateTimeField(editable=False, auto_now=True)
 
     def __str__(self):
-        return f"{self.id} [User:{self.student_stats.user}] [Level: {self.question_bank.level}]"
+        return f"{self.question_bank.question}]"

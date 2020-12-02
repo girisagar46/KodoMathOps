@@ -23,12 +23,26 @@ class QuestionBankAdmin(admin.ModelAdmin):
 
 @admin.register(QuestionTracker)
 class QuestionTrackerAdmin(admin.ModelAdmin):
-    list_display = ("id", "student_stats", "question", "time_to_answer_in_seconds")
+    list_display = (
+        "id",
+        "student_stats",
+        "question",
+        "question_level",
+        "time_to_answer_in_seconds",
+    )
 
     def question(self, obj):
-        return QuestionTracker.objects.get(
+        return QuestionTracker.objects.filter(
             question_bank=obj.question_bank
-        ).question_bank.question
+        ).values_list("question_bank__question", flat=True)
 
     def time_to_answer_in_seconds(self, obj):
         return obj.time_to_answer.seconds
+
+    def question_level(self, obj):
+        return (
+            QuestionTracker.objects.filter(question_bank=obj.question_bank)
+            .values("question_bank__level")
+            .distinct()
+            .first()["question_bank__level"]
+        )

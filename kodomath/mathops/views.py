@@ -46,6 +46,9 @@ class PlayView(APIView):
             student_stats=student_stats, question_bank=question_bank_obj
         )
         return question_tracker
+
+        # FIXME: This is quiet buggy and does not do what I Intented it to do. So I commented it out.
+        #  TBH, it generates same question from the same level twice :(
         # if QuestionTracker.objects.filter(question_bank=question_bank_obj, submitted=False).exists():
         #     print("cond1")
         #     return random.choice(QuestionTracker.objects.filter(submitted=False))
