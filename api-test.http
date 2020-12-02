@@ -21,14 +21,14 @@ Content-Type: application/json
 
 ### Get Questions
 GET http://localhost:8000/api/v1/mathops/play/
-Authorization: Token d19ddc0c6308f2fca7821a43948c455273b7da91
+Authorization: Token 546b1afc6d3bd251239467f880acf087a9777f38
 
 ### Evaluate Submission
 POST http://localhost:8000/api/v1/mathops/play/
 Content-Type: application/json
-Authorization: Token d19ddc0c6308f2fca7821a43948c455273b7da91
+Authorization: Token 546b1afc6d3bd251239467f880acf087a9777f38
 
 {
-  "id": "06f0c32c-ba1d-4d78-ace5-58855d81fa37",
-  "submitted_result": "2.14"
+  "id": "08948126-1d19-4648-9dde-d3b40bc4a159",
+  "submitted_result": "10"
 }

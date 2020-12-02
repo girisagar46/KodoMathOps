@@ -12,6 +12,31 @@ A Backend API for a MVP of an application to learn the basic mathematical operat
 # Local Development
 
 ## Using Docker to run whole stack
+
+1. Clone the repo
+   ```bash
+   git clone git@github.com:girisagar46/KodoMathOps.git
+   ```
+
+1. Go into the repo
+   ```bash
+   cd KodoMathOps
+   ```
+
+1. Prepare virtual environment, activate it and install requirements
+
+   ```bash
+   python3 -m venv venv
+   ``` 
+   
+   ```bash
+   source venv/bin/activate
+   ```
+   
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+
 1. Start the MySQL server:
     ```bash
     docker-compose up
@@ -29,7 +54,12 @@ A Backend API for a MVP of an application to learn the basic mathematical operat
    
 1. Load the initial fixture (this is to populate data in local env)
    ```bash
-   ./manage.py loaddata ./fixtures/bootstrap_data.json
+   ./manage.py loaddata ./fixtures/question_bank.json
+   ```
+
+1. Create superuser
+   ```bash
+   ./manage.py createsuperuser
    ```
 
 1. Run the server
@@ -39,13 +69,9 @@ A Backend API for a MVP of an application to learn the basic mathematical operat
 
 1. Visit [http://localhost:8000/swagger/](http://localhost:8000/swagger/) for API Documentation
 
-7. Visit [http://localhost:8000/admin/](http://localhost:8000/admin/) to get into the Admin dashboard.
+1. Visit [http://localhost:8000/admin/](http://localhost:8000/admin/) to get into the Admin dashboard.
 
-    Username: `admin`
-    
-    Password: `Asd123!##`
-
-8. Use `api-test.http` to play around with the api.
+1. Use `api-test.http` to play around with the api.
    Note: Make sure to update the auth token and question_id before submitting answer :) 
 
 # DB Schema
