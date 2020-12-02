@@ -1,7 +1,6 @@
 # KodoMathOps
 
 [![lint](https://github.com/girisagar46/KodoMathOps/workflows/lint/badge.svg)](https://github.com/girisagar46/KodoMathOps/actions?query=workflow%3Alint)
-
 [![Built with](https://img.shields.io/badge/Built_with-Cookiecutter_Django_Rest-F7B633.svg)](https://github.com/agconti/cookiecutter-django-rest)
 
 A Backend API for a MVP of an application to learn the basic mathematical operations. Developed for the company KodoMath.. Check out the project's [documentation](http://girisagar46.github.io/KodoMathOps/).
@@ -30,7 +29,7 @@ A Backend API for a MVP of an application to learn the basic mathematical operat
    
 1. Load the initial fixture (this is to populate data in local env)
    ```bash
-   ./manage.py loaddata ./fixtures/question_bank.json
+   ./manage.py loaddata ./fixtures/bootstrap_data.json
    ```
 
 1. Run the server
@@ -45,6 +44,9 @@ A Backend API for a MVP of an application to learn the basic mathematical operat
     Username: `admin`
     
     Password: `Asd123!##`
+
+8. Use `api-test.http` to play around with the api.
+   Note: Make sure to update the auth token and question_id before submitting answer :) 
 
 # DB Schema
 
