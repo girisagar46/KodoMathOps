@@ -9,7 +9,6 @@ class Local(Common):
     DEBUG = True
 
     # Testing
-    DATABASES = Common.DATABASES
     INSTALLED_APPS = Common.INSTALLED_APPS
     INSTALLED_APPS += ("django_nose", "django_extensions")
     TEST_RUNNER = "kodomath.runner.TestSuiteRunner"
@@ -20,7 +19,7 @@ class Local(Common):
         "--with-coverage",
         "--with-progressive",
         "--cover-package=kodomath",
-        "--verbosity=3",
+        "--verbosity=2",
     ]
 
     # Mail
